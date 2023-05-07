@@ -1,0 +1,8 @@
+2023-03-14 22:28:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "drop table if exists [*]user cascade "; ожидалось "identifier"
+Syntax error in SQL statement "drop table if exists [*]user cascade "; expected "identifier"; SQL statement:
+drop table if exists user cascade  [42001-214]
+2023-03-14 22:28:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table [*]user (id uuid not null, adress varchar(255), backed varchar(255), birth_date varchar(255), email varchar(255), login varchar(255), name varchar(255), password varchar(255), phone varchar(255), primary key (id))"; ожидалось "identifier"
+Syntax error in SQL statement "create table [*]user (id uuid not null, adress varchar(255), backed varchar(255), birth_date varchar(255), email varchar(255), login varchar(255), name varchar(255), password varchar(255), phone varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table user (id uuid not null, adress varchar(255), backed varchar(255), birth_date varchar(255), email varchar(255), login varchar(255), name varchar(255), password varchar(255), phone varchar(255), primary key (id)) [42001-214]
