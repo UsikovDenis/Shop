@@ -2,9 +2,12 @@ package com.mido.shop.api.controller;
 
 
 import com.mido.shop.api.dto.ProductDto;
+import com.mido.shop.domain.entity.Product;
 import com.mido.shop.service.CommentService;
 import com.mido.shop.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -38,6 +41,11 @@ public class ProductController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable UUID id) {
         productService.delete(id);
+    }
+
+    @GetMapping("/{page}/{size}")
+    public Page<ProductDto> getPageProduct(@PathVariable int page, @PathVariable int size) {
+        return productService.getPageProduct(PageRequest.of(page, size));
     }
 
 }

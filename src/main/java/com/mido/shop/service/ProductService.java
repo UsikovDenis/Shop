@@ -6,6 +6,8 @@ import com.mido.shop.domain.entity.Product;
 import com.mido.shop.domain.repository.ProductRepository;
 import com.mido.shop.mapper.ProductMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +39,12 @@ public class ProductService {
     private Product findOne(UUID id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("not id"));
+    }
+
+    @Transactional(readOnly = true)
+    public Page<ProductDto> getPageProduct(final Pageable pageable) {
+        return productRepository.findAll(pageable)
+                .map(productMapper::toDto);
     }
 
 
